@@ -90,7 +90,7 @@ export default function Home() {
                             className="text-xs font-medium hover:opacity-80 transition-opacity cursor-pointer"
                         >
                             🦡 Use Code <strong>HONEYBADGER</strong> for 15% off on
-                            Services! {/* Fresh setup test - should work now! */}
+                            Services! {/* Vercel integration test - should auto-deploy! */}
                         </button>
                         <button
                             onClick={() => setShowBanner(false)}
