@@ -90,7 +90,7 @@ export default function Home() {
                             className="text-xs font-medium hover:opacity-80 transition-opacity cursor-pointer"
                         >
                             🦡 Use Code <strong>HONEYBADGER</strong> for 15% off on
-                            Services! {/* Vercel integration test - should auto-deploy! */}
+                            Services {/* Vercel integration test - should auto-deploy! */}
                         </button>
                         <button
                             onClick={() => setShowBanner(false)}
@@ -565,9 +565,15 @@ export default function Home() {
 
                             {/* CTA Buttons */}
                             <div className="flex gap-2">
-                                <button className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-sm">
+                                <a 
+                                    href="https://buy.stripe.com/7sY9AUaOs7Yva31etnaAw0x"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-sm cursor-pointer text-center flex items-center justify-center"
+                                    style={{ cursor: 'pointer' }}
+                                >
                                     Start Your Project
-                                </button>
+                                </a>
                                 <button 
                                     onClick={() => setShowLogoModal(true)}
                                     className="flex-1 bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-lg font-semibold hover:bg-gray-50 transition-colors text-sm cursor-pointer"
@@ -648,9 +654,15 @@ export default function Home() {
 
                             {/* CTA Buttons */}
                             <div className="flex gap-2">
-                                <button className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-sm">
+                                <a 
+                                    href="https://buy.stripe.com/9B63cw09ObaHcb91GBaAw0y"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-sm cursor-pointer text-center flex items-center justify-center"
+                                    style={{ cursor: 'pointer' }}
+                                >
                                     Start Your Project
-                                </button>
+                                </a>
                                 <button 
                                     onClick={() => setShowLandingModal(true)}
                                     className="flex-1 bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-lg font-semibold hover:bg-gray-50 transition-colors text-sm cursor-pointer"
@@ -729,9 +741,15 @@ export default function Home() {
 
                             {/* CTA Buttons */}
                             <div className="flex gap-2">
-                                <button className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-sm">
+                                <a 
+                                    href="https://buy.stripe.com/fZu14o4q4baH1wvgBvaAw0z"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-sm cursor-pointer text-center flex items-center justify-center"
+                                    style={{ cursor: 'pointer' }}
+                                >
                                     Start Your Project
-                                </button>
+                                </a>
                                 <button 
                                     onClick={() => setShowSocialModal(true)}
                                     className="flex-1 bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-lg font-semibold hover:bg-gray-50 transition-colors text-sm cursor-pointer"
@@ -1195,9 +1213,15 @@ export default function Home() {
                                     <div className="text-gray-600 text-xs md:text-sm">One-time payment</div>
                                 </div>
                                 <div className="flex flex-col sm:flex-row gap-2 justify-center">
-                                    <button className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer">
+                                    <a 
+                                        href="https://buy.stripe.com/7sY9AUaOs7Yva31etnaAw0x"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer text-center flex items-center justify-center"
+                                        style={{ cursor: 'pointer' }}
+                                    >
                                         Start Your Project
-                                    </button>
+                                    </a>
                                     <button 
                                         className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer"
                                         onClick={() => {
@@ -1367,9 +1391,15 @@ export default function Home() {
                                     <div className="text-gray-600 text-xs md:text-sm">One-time payment</div>
                                 </div>
                                 <div className="flex flex-col sm:flex-row gap-2 justify-center">
-                                    <button className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer">
+                                    <a 
+                                        href="https://buy.stripe.com/9B63cw09ObaHcb91GBaAw0y"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer text-center flex items-center justify-center"
+                                        style={{ cursor: 'pointer' }}
+                                    >
                                         Start Your Project
-                                    </button>
+                                    </a>
                                     <button 
                                         className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer"
                                         onClick={() => {
@@ -1539,9 +1569,15 @@ export default function Home() {
                                     <div className="text-gray-600 text-xs md:text-sm">One-time payment</div>
                                 </div>
                                 <div className="flex flex-col sm:flex-row gap-2 justify-center">
-                                    <button className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer">
+                                    <a 
+                                        href="https://buy.stripe.com/fZu14o4q4baH1wvgBvaAw0z"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer text-center flex items-center justify-center"
+                                        style={{ cursor: 'pointer' }}
+                                    >
                                         Start Your Project
-                                    </button>
+                                    </a>
                                     <button 
                                         className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer"
                                         onClick={() => {
