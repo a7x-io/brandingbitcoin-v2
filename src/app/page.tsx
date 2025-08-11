@@ -1024,32 +1024,51 @@ export default function Home() {
                                 Services
                             </h4>
                             <ul className="space-y-2 text-muted-foreground">
-                                <li>Brand Identity</li>
-                                <li>Digital Marketing</li>
-                                <li>Brand Strategy</li>
-                                <li>Web Design</li>
+                                <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => setShowLogoModal(true)}>Logo Design</li>
+                                <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => setShowLandingModal(true)}>Landing Pages</li>
+                                <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => setShowSocialModal(true)}>Social Media Ads</li>
                             </ul>
                         </div>
                         <div>
                             <h4 className="font-semibold text-foreground mb-4">
-                                Company
+                                Quick Links
                             </h4>
                             <ul className="space-y-2 text-muted-foreground">
-                                <li>About Us</li>
-                                <li>Portfolio</li>
-                                <li>Case Studies</li>
-                                <li>Contact</li>
+                                <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</li>
+                                <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => document.getElementById('book-call')?.scrollIntoView({ behavior: 'smooth' })}>Book a Call</li>
+                                <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => {
+                                    const servicesSection = document.getElementById('services');
+                                    if (servicesSection) {
+                                        const offset = 80; // Account for reduced padding
+                                        const elementPosition = servicesSection.offsetTop - offset;
+                                        window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                                    }
+                                }}>Services</li>
                             </ul>
                         </div>
                         <div>
                             <h4 className="font-semibold text-foreground mb-4">
-                                Connect
+                                Contact
                             </h4>
                             <ul className="space-y-2 text-muted-foreground">
-                                <li>Twitter</li>
-                                <li>LinkedIn</li>
-                                <li>Email</li>
-                                <li>Telegram</li>
+                                <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => {
+                                    navigator.clipboard.writeText('hey@brandingbitcoin.com');
+                                    const audio = new Audio('/sounds/pop.mp3');
+                                    audio.play().catch(e => console.log('Audio playback failed:', e));
+                                    
+                                    const popup = document.createElement('div');
+                                    popup.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50 transform -translate-y-full transition-transform duration-300';
+                                    popup.textContent = '📋 Email copied to clipboard!';
+                                    document.body.appendChild(popup);
+                                    
+                                    setTimeout(() => popup.classList.remove('-translate-y-full'), 10);
+                                    setTimeout(() => {
+                                        if (document.body.contains(popup)) {
+                                            document.body.removeChild(popup);
+                                        }
+                                    }, 2000);
+                                }}>hey@brandingbitcoin.com</li>
+                                <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => document.getElementById('book-call')?.scrollIntoView({ behavior: 'smooth' })}>Free Strategy Call</li>
                             </ul>
                         </div>
                     </div>
