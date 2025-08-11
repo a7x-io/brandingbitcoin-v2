@@ -148,18 +148,33 @@ export default function Home() {
                         >
                             Services
                         </a>
+                        <a
+                            href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                const blogSection = document.getElementById('blog');
+                                if (blogSection) {
+                                    const offset = 80; // Account for reduced padding
+                                    const elementPosition = blogSection.offsetTop - offset;
+                                    window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                                }
+                            }}
+                            className="text-foreground hover:text-primary transition-colors cursor-pointer"
+                        >
+                            Blog
+                        </a>
                         {/* <a
                             href="#about"
                             className="text-foreground hover:text-primary transition-colors"
                         >
                             About
                         </a>
-                        <a
-                            href="#contact"
-                            className="text-foreground hover:text-primary transition-colors"
-                        >
-                            Contact
-                        </a> */}
+                            <a
+                                href="#contact"
+                                className="text-foreground hover:text-primary transition-colors"
+                            >
+                                Contact
+                            </a> */}
                         <Button
                             variant="outline"
                             className="border-primary text-primary hover:bg-primary hover:text-primary-foreground cursor-pointer px-4 py-2 text-base font-medium"
@@ -226,6 +241,22 @@ export default function Home() {
                                 className="block py-3 px-4 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
                             >
                                 Services
+                            </a>
+                            <a
+                                href="#"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setShowMobileMenu(false);
+                                    const blogSection = document.getElementById('blog');
+                                    if (blogSection) {
+                                        const offset = 80;
+                                        const elementPosition = blogSection.offsetTop - offset;
+                                        window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                                    }
+                                }}
+                                className="block py-3 px-4 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+                            >
+                                Blog
                             </a>
                         </div>
                         
@@ -863,6 +894,123 @@ export default function Home() {
                             Book a Call
                         </button>
                     </div>
+                </div>
+            </section>
+
+            <Separator className="my-8" />
+
+            {/* Blog Section */}
+            <section id="blog" className="container mx-auto px-4 py-4 bg-gray-50/30">
+                <div className="text-center mb-12">
+                    <h2 className="text-4xl font-bold text-foreground mb-4">
+                        Latest Insights
+                    </h2>
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                        Stay ahead with our latest thoughts on Bitcoin branding, marketing strategies, and industry trends
+                    </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    {/* Blog Post Placeholder 1 */}
+                    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                        <div className="h-48 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
+                            <div className="text-center text-gray-500">
+                                <FileText className="w-12 h-12 mx-auto mb-2 opacity-50" />
+                                <p className="text-sm">Coming Soon</p>
+                            </div>
+                        </div>
+                        <div className="p-6">
+                            <div className="flex items-center gap-2 mb-3">
+                                <Badge variant="secondary" className="text-xs">
+                                    Branding
+                                </Badge>
+                                <span className="text-xs text-gray-500">5 min read</span>
+                            </div>
+                            <h3 className="text-xl font-bold text-gray-800 mb-3">
+                                The Future of Bitcoin Branding
+                            </h3>
+                            <p className="text-gray-600 mb-4 text-sm">
+                                How Bitcoin companies can create authentic, trustworthy brands that resonate with the crypto community.
+                            </p>
+                            <div className="flex items-center justify-between">
+                                <span className="text-xs text-gray-500">Coming soon...</span>
+                                <Button variant="outline" size="sm" disabled>
+                                    Read More
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Blog Post Placeholder 2 */}
+                    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                        <div className="h-48 bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center">
+                            <div className="text-center text-gray-500">
+                                <Target className="w-12 h-12 mx-auto mb-2 opacity-50" />
+                                <p className="text-sm">Coming Soon</p>
+                            </div>
+                        </div>
+                        <div className="p-6">
+                            <div className="flex items-center gap-2 mb-3">
+                                <Badge variant="secondary" className="text-xs">
+                                    Marketing
+                                </Badge>
+                                <span className="text-xs text-gray-500">7 min read</span>
+                            </div>
+                            <h3 className="text-xl font-bold text-gray-800 mb-3">
+                                Marketing Strategies for Bitcoin Startups
+                            </h3>
+                            <p className="text-gray-600 mb-4 text-sm">
+                                Proven marketing tactics that help Bitcoin businesses acquire customers and build community.
+                            </p>
+                            <div className="flex items-center justify-between">
+                                <span className="text-xs text-gray-500">Coming soon...</span>
+                                <Button variant="outline" size="sm" disabled>
+                                    Read More
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Blog Post Placeholder 3 */}
+                    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                        <div className="h-48 bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center">
+                            <div className="text-center text-gray-500">
+                                <Globe className="w-12 h-12 mx-auto mb-2 opacity-50" />
+                                <p className="text-sm">Coming Soon</p>
+                            </div>
+                        </div>
+                        <div className="p-6">
+                            <div className="flex items-center gap-2 mb-3">
+                                <Badge variant="secondary" className="text-xs">
+                                    Web Design
+                                </Badge>
+                                <span className="text-xs text-gray-500">6 min read</span>
+                            </div>
+                            <h3 className="text-xl font-bold text-gray-800 mb-3">
+                                Building High-Converting Bitcoin Websites
+                            </h3>
+                            <p className="text-gray-600 mb-4 text-sm">
+                                Design principles and conversion optimization techniques specifically for Bitcoin businesses.
+                            </p>
+                            <div className="flex items-center justify-between">
+                                <span className="text-xs text-gray-500">Coming soon...</span>
+                                <Button variant="outline" size="sm" disabled>
+                                    Read More
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="text-center mt-12">
+                    <Button 
+                        variant="outline" 
+                        size="lg"
+                        className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3"
+                        disabled
+                    >
+                        View All Posts
+                    </Button>
                 </div>
             </section>
 
