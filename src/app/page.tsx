@@ -434,7 +434,7 @@ export default function Home() {
                         </h3>
                         <p className="text-sm text-gray-500">
                             We&apos;ve helped these companies build their digital presence
-                            {/* Testing new GitHub integration - should auto-deploy! */}
+                            {/* Repository now public - testing improved GitHub integration! */}
                         </p>
                     </div>
                     
@@ -1215,7 +1215,7 @@ export default function Home() {
                         </button>
                         
                         {/* Modal Body */}
-                        <div className="p-6">
+                        <div className="p-4 md:p-6">
                             {/* Header */}
                             <div className="text-center mb-4 md:mb-6">
                                 <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg">
@@ -1230,11 +1230,11 @@ export default function Home() {
                             </div>
                             
                             {/* Service Details */}
-                            <div className="grid md:grid-cols-2 gap-6 mb-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
                                 {/* Left Column */}
                                 <div className="space-y-4">
                                     <div>
-                                        <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                                        <h3 className="text-sm md:text-lg font-semibold text-gray-800 mb-2 md:mb-3 flex items-center gap-2">
                                             <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                                             Process
                                         </h3>
@@ -1243,19 +1243,19 @@ export default function Home() {
                                                 <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-blue-600 font-semibold text-xs md:text-sm">
                                                     1
                                                 </div>
-                                                <span className="text-gray-700 text-xs md:text-sm"><strong>Quick Start</strong>: Fill out a short 3-question form about your goals.</span>
+                                                <span className="text-gray-700 text-xs md:text-sm"><strong>Quick Start</strong>: Fill out a short form about your goals.</span>
                                             </div>
                                             <div className="flex items-start gap-2">
                                                 <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-blue-600 font-semibold text-xs md:text-sm">
                                                     2
                                                 </div>
-                                                <span className="text-gray-700 text-xs md:text-sm"><strong>Creative Direction</strong>: Receive a tailored moodboard capturing your style and vision.</span>
+                                                <span className="text-gray-700 text-xs md:text-sm"><strong>Creative Direction</strong>: Receive a tailored moodboard.</span>
                                             </div>
                                             <div className="flex items-start gap-2">
                                                 <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-blue-600 font-semibold text-xs md:text-sm">
                                                     3
                                                 </div>
-                                                <span className="text-gray-700 text-xs md:text-sm"><strong>Final Design</strong>: Once approved, we deliver your pixel-perfect logo.</span>
+                                                <span className="text-gray-700 text-xs md:text-sm"><strong>Final Design</strong>: Once approved, we deliver your logo.</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1264,7 +1264,7 @@ export default function Home() {
                                 {/* Right Column */}
                                 <div className="space-y-4">
                                     <div>
-                                        <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                                        <h3 className="text-sm md:text-lg font-semibold text-gray-800 mb-2 md:mb-3 flex items-center gap-2">
                                             <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                                             Your Delivery Includes
                                         </h3>
@@ -1296,8 +1296,8 @@ export default function Home() {
                             {/* CTA Section */}
                             <div className="text-center pt-4 border-t border-gray-200">
                                 <div className="mb-3">
-                                    <div className="text-2xl font-bold text-gray-800 mb-1">$299</div>
-                                    <div className="text-gray-600 text-sm">One-time payment</div>
+                                    <div className="text-xl md:text-2xl font-bold text-gray-800 mb-1">$299</div>
+                                    <div className="text-gray-600 text-xs md:text-sm">One-time payment</div>
                                 </div>
                                 <div className="flex flex-col sm:flex-row gap-2 justify-center">
                                     <button className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer">
@@ -1587,7 +1587,7 @@ export default function Home() {
                                                 <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-blue-600 font-semibold text-xs md:text-sm">
                                                     1
                                                 </div>
-                                                <span className="text-gray-700 text-xs md:text-sm"><strong>Quick Start</strong>: Fill out a short 3-question form about your brand and goals.</span>
+                                                <span className="text-gray-700 text-xs md:text-sm"><strong>Quick Start</strong>: Fill out a short form about your brand and goals.</span>
                                             </div>
                                             <div className="flex items-start gap-2">
                                                 <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-blue-600 font-semibold text-xs md:text-sm">
