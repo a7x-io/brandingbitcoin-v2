@@ -1242,7 +1242,7 @@ export default function Home() {
                                                 <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-blue-600 font-semibold text-xs md:text-sm">
                                                     1
                                                 </div>
-                                                <span className="text-gray-700 text-xs md:text-sm"><strong>Quick Start</strong>: Fill out a short 3-question form about your brand and goals.</span>
+                                                <span className="text-gray-700 text-xs md:text-sm"><strong>Quick Start</strong>: Fill out a short 3-question form about your goals.</span>
                                             </div>
                                             <div className="flex items-start gap-2">
                                                 <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-blue-600 font-semibold text-xs md:text-sm">
