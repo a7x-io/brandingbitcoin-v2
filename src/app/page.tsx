@@ -434,7 +434,7 @@ export default function Home() {
                         </h3>
                         <p className="text-sm text-gray-500">
                             We&apos;ve helped these companies build their digital presence
-                            {/* Testing auto-deployment from GitHub to Vercel */}
+                            {/* Testing new GitHub integration - should auto-deploy! */}
                         </p>
                     </div>
                     
