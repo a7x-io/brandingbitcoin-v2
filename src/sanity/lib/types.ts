@@ -19,7 +19,7 @@ export interface BlogPost {
 }
 
 export interface BlogPostDetail extends BlogPost {
-  body: any[] // Portable Text content
+  body: unknown[] // Portable Text content
   authorImage?: {
     asset: {
       _ref: string
@@ -47,5 +47,5 @@ export interface Author {
     }
     alt?: string
   }
-  bio?: any[]
+  bio?: unknown[]
 }
