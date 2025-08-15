@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
+import { Logo } from '@/components/ui/logo'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { Globe, Smartphone, Zap, Palette, FileText, Target, BarChart3, CheckCircle } from 'lucide-react'
@@ -112,14 +113,7 @@ export default function Home() {
                             href="#"
                             className="hover:opacity-80 transition-opacity"
                         >
-                            <Image
-                                src="/LogoB.svg"
-                                alt="BrandingBitcoin Logo"
-                                width={180}
-                                height={33}
-                                className="h-8 w-auto"
-                                priority
-                            />
+                            <Logo priority />
                         </a>
                     </div>
                     <div className="hidden md:flex items-center space-x-6">
@@ -254,7 +248,7 @@ export default function Home() {
 
             {/* Hero Section */}
             <section 
-                className="relative bg-gradient-to-b from-background via-primary/10 via-primary/5 to-white"
+                className="relative bg-gradient-to-b from-background via-primary/10 via-primary/5 to-white dark:to-background"
                 onMouseMove={handleMouseMove}
             >
                 {/* Background Noise Image */}
@@ -432,13 +426,13 @@ export default function Home() {
             </section>
 
             {/* Logo Marquee Section */}
-            <section className="pt-8 pb-16 bg-gray-50/50">
+            <section className="pt-8 pb-16 bg-gray-50/50 dark:bg-gray-800/50">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-6">
-                        <h3 className="text-lg font-medium text-gray-600 mb-2">
+                        <h3 className="text-lg font-medium text-gray-600 dark:text-gray-300 mb-2">
                             Trusted by fiat brands {/* Reconnection test - should trigger Vercel */}
                         </h3>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
                             We&apos;ve helped these companies build their digital presence
                             {/* Repository now public - testing improved GitHub integration! */}
                         </p>
@@ -451,7 +445,7 @@ export default function Home() {
                                 alt="Nissan"
                                 width={120}
                                 height={60}
-                                className="h-8 sm:h-12 md:h-14 w-auto opacity-60 hover:opacity-80 transition-opacity"
+                                className="h-8 sm:h-12 md:h-14 w-auto opacity-60 hover:opacity-80 transition-opacity dark:opacity-40 dark:hover:opacity-60"
                             />
                         </div>
                         <div className="flex-shrink-0">
@@ -460,7 +454,7 @@ export default function Home() {
                                 alt="Pfizer"
                                 width={120}
                                 height={60}
-                                className="h-6 sm:h-8 md:h-10 w-auto opacity-60 hover:opacity-80 transition-opacity"
+                                className="h-6 sm:h-8 md:h-10 w-auto opacity-60 hover:opacity-80 transition-opacity dark:opacity-40 dark:hover:opacity-60"
                             />
                         </div>
                         <div className="flex-shrink-0">
@@ -469,7 +463,7 @@ export default function Home() {
                                 alt="Radisson"
                                 width={120}
                                 height={60}
-                                className="h-5 sm:h-6 md:h-9 w-auto opacity-60 hover:opacity-80 transition-opacity"
+                                className="h-5 sm:h-6 md:h-9 w-auto opacity-60 hover:opacity-80 transition-opacity dark:opacity-40 dark:hover:opacity-60"
                             />
                         </div>
                         <div className="flex-shrink-0">
@@ -478,7 +472,7 @@ export default function Home() {
                                 alt="McDonald&apos;s"
                                 width={120}
                                 height={60}
-                                className="h-7 sm:h-10 md:h-11 w-auto opacity-60 hover:opacity-80 transition-opacity"
+                                className="h-7 sm:h-10 md:h-11 w-auto opacity-60 hover:opacity-80 transition-opacity dark:opacity-40 dark:hover:opacity-60"
                             />
                         </div>
                         <div className="flex-shrink-0">
@@ -487,7 +481,7 @@ export default function Home() {
                                 alt="TBWA"
                                 width={120}
                                 height={60}
-                                className="h-4 sm:h-5 md:h-6 w-auto opacity-60 hover:opacity-80 transition-opacity"
+                                className="h-4 sm:h-5 md:h-6 w-auto opacity-60 hover:opacity-80 transition-opacity dark:opacity-40 dark:hover:opacity-60"
                             />
                         </div>
                     </div>
@@ -1030,13 +1024,7 @@ export default function Home() {
                     <div className="grid md:grid-cols-4 gap-8">
                         <div>
                             <div className="flex items-center space-x-2 mb-4">
-                                <Image
-                                    src="/LogoB.svg"
-                                    alt="BrandingBitcoin Logo"
-                                    width={180}
-                                    height={33}
-                                    className="h-8 w-auto"
-                                />
+                                <Logo />
                             </div>
                             <p className="text-muted-foreground">
                                 Digital solutions for the Bitcoin
