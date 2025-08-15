@@ -166,9 +166,9 @@
   --card-foreground: oklch(0.984 0.003 247.858);
   --popover: oklch(0.208 0.042 265.755);
   --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
+  --primary: #FF6B00;
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: #FF5100;
   --secondary-foreground: oklch(0.984 0.003 247.858);
   --muted: oklch(0.279 0.041 260.031);
   --muted-foreground: oklch(0.704 0.04 256.788);
@@ -177,9 +177,9 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
+  --ring: #FF6B00;
+  --chart-1: #FF6B00;
+  --chart-2: #FF5100;
   --chart-3: #FF8C00;
   --chart-4: #FFA500;
   --chart-5: #FFD700;
@@ -211,6 +211,59 @@
     background-clip: text;
     line-height: 1.1;
     padding-bottom: 0.1em;
+  }
+  
+  /* Dark mode specific styles */
+  .dark .bg-gray-50\/50 {
+    @apply bg-gray-800/50;
+  }
+  
+  .dark .bg-white {
+    @apply bg-gray-800;
+  }
+  
+  .dark .text-gray-600 {
+    @apply text-gray-300;
+  }
+  
+  .dark .text-gray-700 {
+    @apply text-gray-200;
+  }
+  
+  .dark .text-gray-800 {
+    @apply text-gray-100;
+  }
+  
+  .dark .border-gray-300 {
+    @apply border-gray-600;
+  }
+  
+  .dark .hover\:bg-gray-50:hover {
+    @apply hover:bg-gray-700;
+  }
+  
+  .dark .bg-gray-100 {
+    @apply bg-gray-700;
+  }
+  
+  .dark .bg-gray-200 {
+    @apply bg-gray-700;
+  }
+  
+  .dark .bg-gray-50 {
+    @apply bg-gray-800;
+  }
+  
+  .dark .shadow-lg {
+    @apply shadow-gray-900/50;
+  }
+  
+  .dark .shadow-xl {
+    @apply shadow-gray-900/50;
+  }
+  
+  .dark .shadow-2xl {
+    @apply shadow-gray-900/50;
   }
   
   /* Marquee Animation */

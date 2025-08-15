@@ -1,9 +1,9 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
+import { ThemeToggle } from '@/components/ui/theme-toggle'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { Globe, Smartphone, Zap, Palette, FileText, Target, BarChart3, CheckCircle } from 'lucide-react'
@@ -168,6 +168,7 @@ export default function Home() {
                         >
                             Free Strategy Call
                         </Button>
+                        <ThemeToggle />
                     </div>
                     
                     {/* Mobile Menu Button */}
@@ -241,6 +242,11 @@ export default function Home() {
                             >
                                 Free Strategy Call
                             </Button>
+                        </div>
+                        
+                        {/* Theme Toggle */}
+                        <div className="px-4 pt-2 pb-4 flex items-center justify-center">
+                            <ThemeToggle />
                         </div>
                     </div>
                 </div>
