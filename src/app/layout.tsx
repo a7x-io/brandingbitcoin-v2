@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Content Security Policy for Twitter Pixel */}
-        <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com; connect-src 'self' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com; img-src 'self' data: https: https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com;" />
+        <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com; connect-src 'self' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com; img-src 'self' data: https: https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com;" />
         
         <link rel="icon" href="/Favicon-02.png" type="image/png" />
         <link rel="shortcut icon" href="/Favicon-02.png" />
@@ -42,11 +42,16 @@ export default function RootLayout({
         <script async src="https://static.ads-twitter.com/uwt.js"></script>
         <script dangerouslySetInnerHTML={{
           __html: `
+            console.log('Twitter Pixel: Initializing...');
             window.twq = window.twq || function() {
+              console.log('Twitter Pixel: Function called with args:', arguments);
               (window.twq.q = window.twq.q || []).push(arguments);
             };
+            console.log('Twitter Pixel: Setting up initialization...');
             twq('init', 'tw-qcg5j-qcg7r');
+            console.log('Twitter Pixel: Tracking page view...');
             twq('track', 'PageView');
+            console.log('Twitter Pixel: Setup complete');
           `
         }} />
         <noscript>
