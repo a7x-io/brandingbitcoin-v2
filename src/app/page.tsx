@@ -789,7 +789,7 @@ export default function Home() {
                                 }
                             }
                         }}
-                        className="inline-flex items-center gap-2 text-xl md:text-2xl font-bold text-gray-800 mb-4 hover:text-gray-600 transition-colors cursor-pointer"
+                        className="inline-flex items-center gap-2 text-xl md:text-2xl font-bold text-foreground mb-4 hover:text-primary transition-colors cursor-pointer"
                     >
                         Need more? We offer additional services
                         <svg 
