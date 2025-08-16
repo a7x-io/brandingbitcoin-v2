@@ -13,7 +13,7 @@ import { Globe, Smartphone, Zap, Palette, FileText, Target, BarChart3, CheckCirc
 const useTwitterPixelEvent = () => {
   const [lastEventTime, setLastEventTime] = useState(0);
   
-  return useCallback((eventName: string, eventData?: any) => {
+  return useCallback((eventName: string, eventData?: unknown) => {
     const now = Date.now();
     // Prevent events from firing more than once per 100ms
     if (now - lastEventTime > 100 && typeof window !== 'undefined' && window.twq) {

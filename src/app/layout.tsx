@@ -6,7 +6,7 @@ import Image from "next/image";
 // TypeScript declarations for Twitter pixel
 declare global {
   interface Window {
-    twq?: (command: string, ...args: any[]) => void;
+    twq?: (command: string, ...args: unknown[]) => void;
     twitterPixelInitialized?: boolean;
   }
 }
@@ -90,7 +90,7 @@ export default function RootLayout({
           `
         }} />
         <noscript>
-          <img height="1" width="1" style={{display: 'none'}} src="https://t.co/i/adsct?bci=3&eci=2&event_id=tw-qcg5j-qcg7r&events=%5B%5B%5D%5D&integration=ads&p_id=Twitter&p_user_id=0&pl_id=YOUR_PLACEMENT_ID&tw_document_href=YOUR_WEBSITE_URL&tw_iframe_status=0&tw_order_quantity=0&tw_sale_amount=0&tw_tax=0&tw_transaction_id=0&user_id=0&xdp=0" alt="" />
+          <Image height={1} width={1} style={{display: 'none'}} src="https://t.co/i/adsct?bci=3&eci=2&event_id=tw-qcg5j-qcg7r&events=%5B%5B%5D%5D&integration=ads&p_id=Twitter&p_user_id=0&pl_id=YOUR_PLACEMENT_ID&tw_document_href=YOUR_WEBSITE_URL&tw_iframe_status=0&tw_order_quantity=0&tw_sale_amount=0&tw_tax=0&tw_transaction_id=0&user_id=0&xdp=0" alt="" />
         </noscript>
       </head>
       <body className="antialiased">
