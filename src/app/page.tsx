@@ -1,5 +1,14 @@
 'use client'
 
+// TypeScript declarations for external libraries
+declare global {
+  interface Window {
+    tidycalEmbed?: {
+      init?: () => void;
+    };
+  }
+}
+
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
@@ -23,21 +32,77 @@ const useTwitterPixelEvent = () => {
   }, [lastEventTime]);
 };
 
-// TidyCal Embed Component
+// TidyCal Embed Component - Fixed for better reliability
 const TidyCalEmbed = () => {
     useEffect(() => {
+        // Check if TidyCal script is already loaded
+        if (window.tidycalEmbed) {
+            console.log('TidyCal: Script already loaded, reinitializing...');
+            // Reinitialize the embed
+            if (window.tidycalEmbed.init) {
+                window.tidycalEmbed.init();
+            }
+            return;
+        }
+
+        console.log('TidyCal: Loading embed script...');
+        
         const script = document.createElement('script');
         script.src = 'https://asset-tidycal.b-cdn.net/js/embed.js';
         script.async = true;
-        document.body.appendChild(script);
+        script.onload = () => {
+            console.log('TidyCal: Script loaded successfully');
+            // Wait a bit for the script to initialize
+            setTimeout(() => {
+                if (window.tidycalEmbed && window.tidycalEmbed.init) {
+                    window.tidycalEmbed.init();
+                    console.log('TidyCal: Embed initialized');
+                } else {
+                    console.warn('TidyCal: Script loaded but init function not found');
+                    // Try alternative initialization
+                    const embedElement = document.querySelector('.tidycal-embed');
+                    if (embedElement) {
+                        console.log('TidyCal: Found embed element, attempting manual initialization');
+                    }
+                }
+            }, 100);
+        };
+        script.onerror = (error) => {
+            console.error('TidyCal: Failed to load script:', error);
+            // Fallback: try to load from alternative source
+            console.log('TidyCal: Attempting fallback script loading...');
+            const fallbackScript = document.createElement('script');
+            fallbackScript.src = 'https://tidycal.com/js/embed.js';
+            fallbackScript.async = true;
+            document.head.appendChild(fallbackScript);
+        };
+        
+        document.head.appendChild(script);
 
+        // Don't remove the script on cleanup - let it persist
         return () => {
-            document.body.removeChild(script);
+            console.log('TidyCal: Component unmounting');
         };
     }, []);
 
     return (
-        <div className="tidycal-embed" data-path="brandingbtc/15-minute-meeting"></div>
+        <div 
+            className="tidycal-embed" 
+            data-path="brandingbtc/15-minute-meeting"
+            style={{ 
+                minHeight: '600px', 
+                width: '100%',
+                border: '1px solid #e5e7eb',
+                borderRadius: '8px',
+                padding: '20px',
+                backgroundColor: '#f9fafb'
+            }}
+        >
+            <div className="text-center text-gray-500">
+                <p>Loading calendar...</p>
+                <p className="text-sm mt-2">If the calendar doesn't load, please refresh the page</p>
+            </div>
+        </div>
     );
 };
 
