@@ -1,5 +1,12 @@
 'use client'
 
+// Twitter tracking type declaration
+declare global {
+  interface Window {
+    twq: any;
+  }
+}
+
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
@@ -571,6 +578,11 @@ export default function Home() {
                                     rel="noopener noreferrer"
                                     className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-sm cursor-pointer text-center flex items-center justify-center"
                                     style={{ cursor: 'pointer' }}
+                                    onClick={() => {
+                                        if (typeof window !== 'undefined' && window.twq) {
+                                            window.twq('event', 'tw-qcg5j-qcg7r', {});
+                                        }
+                                    }}
                                 >
                                     Start Your Project
                                 </a>
@@ -660,6 +672,11 @@ export default function Home() {
                                     rel="noopener noreferrer"
                                     className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-sm cursor-pointer text-center flex items-center justify-center"
                                     style={{ cursor: 'pointer' }}
+                                    onClick={() => {
+                                        if (typeof window !== 'undefined' && window.twq) {
+                                            window.twq('event', 'tw-qcg5j-qcg7r', {});
+                                        }
+                                    }}
                                 >
                                     Start Your Project
                                 </a>
@@ -747,6 +764,11 @@ export default function Home() {
                                     rel="noopener noreferrer"
                                     className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-sm cursor-pointer text-center flex items-center justify-center"
                                     style={{ cursor: 'pointer' }}
+                                    onClick={() => {
+                                        if (typeof window !== 'undefined' && window.twq) {
+                                            window.twq('event', 'tw-qcg5j-qcg7r', {});
+                                        }
+                                    }}
                                 >
                                     Start Your Project
                                 </a>
@@ -803,7 +825,7 @@ export default function Home() {
                         </svg>
                     </button>
                     <div id="additional-services-content" className="grid grid-cols-2 md:grid-cols-3 gap-4 opacity-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-white rounded-lg hover:bg-gray-50 transition-colors">
+                        <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                             <div className="w-3.5 h-3.5 md:w-5 md:h-5 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                                 <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -811,7 +833,7 @@ export default function Home() {
                             </div>
                             <span className="text-gray-700 font-medium text-xs md:text-sm">App Design</span>
                         </div>
-                        <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-white rounded-lg hover:bg-gray-50 transition-colors">
+                        <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                             <div className="w-3.5 h-3.5 md:w-5 md:h-5 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                                 <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -819,7 +841,7 @@ export default function Home() {
                             </div>
                             <span className="text-gray-700 font-medium text-xs md:text-sm">Video Editing</span>
                         </div>
-                        <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-white rounded-lg hover:bg-gray-50 transition-colors">
+                        <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                             <div className="w-3.5 h-3.5 md:w-5 md:h-5 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                                 <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -827,23 +849,23 @@ export default function Home() {
                             </div>
                             <span className="text-gray-700 font-medium text-xs md:text-sm">Motion Graphics</span>
                         </div>
-                        <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-white rounded-lg hover:bg-gray-50 transition-colors">
+                        <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                             <div className="w-3.5 h-3.5 md:w-5 md:h-5 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                                 <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                 </svg>
                             </div>
-                            <span className="text-gray-700 font-medium text-xs md:text-sm">Brand Style Guides</span>
+                            <span className="text-gray-700 font-medium text-xs md:text-sm">Ad Campaigns</span>
                         </div>
-                        <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-white rounded-lg hover:bg-gray-50 transition-colors">
+                        <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                             <div className="w-3.5 h-3.5 md:w-5 md:h-5 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                                 <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                 </svg>
                             </div>
-                            <span className="text-gray-700 font-medium text-xs md:text-sm">Email Newsletters</span>
+                            <span className="text-gray-700 font-medium text-xs md:text-sm">Email Templates</span>
                         </div>
-                        <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-white rounded-lg hover:bg-gray-50 transition-colors">
+                        <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                             <div className="w-3.5 h-3.5 md:w-5 md:h-5 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                                 <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -857,7 +879,12 @@ export default function Home() {
                     <div className="mt-2">
                         <button 
                             className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer text-sm md:text-base"
-                            onClick={() => document.getElementById('book-call')?.scrollIntoView({ behavior: 'smooth' })}
+                            onClick={() => {
+                                document.getElementById('book-call')?.scrollIntoView({ behavior: 'smooth' });
+                                if (typeof window !== 'undefined' && window.twq) {
+                                    window.twq('event', 'tw-qcg5j-qcg7r', {});
+                                }
+                            }}
                             style={{ cursor: 'pointer' }}
                         >
                             Book a Call
@@ -1213,6 +1240,11 @@ export default function Home() {
                                         rel="noopener noreferrer"
                                         className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer text-center flex items-center justify-center"
                                         style={{ cursor: 'pointer' }}
+                                        onClick={() => {
+                                            if (typeof window !== 'undefined' && window.twq) {
+                                                window.twq('event', 'tw-qcg5j-qcg7r', {});
+                                            }
+                                        }}
                                     >
                                         Start Your Project
                                     </a>
