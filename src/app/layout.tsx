@@ -16,6 +16,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/Favicon-02.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-fav.png" />
       </head>
       <body className="antialiased">
         <ThemeProvider defaultTheme="system">
