@@ -21,6 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Content Security Policy for Twitter Pixel */}
+        <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com; connect-src 'self' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com; img-src 'self' data: https: https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com;" />
+        
         <link rel="icon" href="/Favicon-02.png" type="image/png" />
         <link rel="shortcut icon" href="/Favicon-02.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-fav.png" />
@@ -35,9 +38,6 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#FF6B00" />
         <meta name="msapplication-TileImage" content="/apple-fav.png" />
         
-        {/* Content Security Policy for Twitter Pixel */}
-        <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com; connect-src 'self' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com; img-src 'self' data: https: https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com;" />
-        
         {/* Twitter Pixel Base Code */}
         <script async src="https://static.ads-twitter.com/uwt.js"></script>
         <script dangerouslySetInnerHTML={{
@@ -45,10 +45,12 @@ export default function RootLayout({
             window.twq = window.twq || function() {
               (window.twq.q = window.twq.q || []).push(arguments);
             };
+            twq('init', 'tw-qcg5j-qcg7r');
+            twq('track', 'PageView');
           `
         }} />
         <noscript>
-          <Image height={1} width={1} style={{display: 'none'}} src="https://t.co/i/adsct?bci=3&eci=2&event_id=tw-qcg5j-qcg7r&events=%5B%5B%5D%5D&integration=ads&p_id=Twitter&p_user_id=0&pl_id=YOUR_PLACEMENT_ID&tw_document_href=YOUR_WEBSITE_URL&tw_iframe_status=0&tw_order_quantity=0&tw_sale_amount=0&tw_tax=0&tw_transaction_id=0&user_id=0&xdp=0" alt="" />
+          <img height="1" width="1" style={{display: 'none'}} src="https://t.co/i/adsct?bci=3&eci=2&event_id=tw-qcg5j-qcg7r&events=%5B%5B%5D%5D&integration=ads&p_id=Twitter&p_user_id=0&pl_id=YOUR_PLACEMENT_ID&tw_document_href=YOUR_WEBSITE_URL&tw_iframe_status=0&tw_order_quantity=0&tw_sale_amount=0&tw_tax=0&tw_transaction_id=0&user_id=0&xdp=0" alt="" />
         </noscript>
       </head>
       <body className="antialiased">
