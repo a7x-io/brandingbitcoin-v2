@@ -40,8 +40,9 @@ const TidyCalEmbed = () => {
         script.async = true;
         document.body.appendChild(script);
 
+        // Don't remove the script - let it persist
         return () => {
-            document.body.removeChild(script);
+            // Keep the script loaded
         };
     }, []);
 
