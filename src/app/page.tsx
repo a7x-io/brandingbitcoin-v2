@@ -12,24 +12,38 @@ import { Globe, Smartphone, Zap, Palette, FileText, Target, BarChart3, CheckCirc
 // Twitter conversion tracking event code
 const TwitterConversionTracking = () => {
     useEffect(() => {
+        console.log('TwitterConversionTracking: Component mounted');
+        console.log('TwitterConversionTracking: window.twq exists?', typeof window !== 'undefined' && !!window.twq);
+        
         // Load Twitter pixel base script if not already loaded
         if (typeof window !== 'undefined' && !window.twq) {
+            console.log('TwitterConversionTracking: Loading Twitter pixel script...');
             const script = document.createElement('script');
             script.src = 'https://static.ads-twitter.com/uwt.js';
             script.async = true;
             script.onload = () => {
+                console.log('TwitterConversionTracking: Script loaded successfully');
                 // Initialize Twitter pixel
                 if (window.twq) {
+                    console.log('TwitterConversionTracking: Initializing pixel...');
                     window.twq('config', 'qcg5j');
                     window.twq('track', 'PageView');
                     // Now fire the conversion event
                     window.twq('event', 'tw-qcg5j-qcl01', {});
+                    console.log('TwitterConversionTracking: Conversion event fired');
+                } else {
+                    console.error('TwitterConversionTracking: Script loaded but twq not available');
                 }
+            };
+            script.onerror = (error) => {
+                console.error('TwitterConversionTracking: Failed to load script:', error);
             };
             document.head.appendChild(script);
         } else if (window.twq) {
+            console.log('TwitterConversionTracking: Pixel already loaded, firing conversion event');
             // Pixel already loaded, just fire the conversion event
             window.twq('event', 'tw-qcg5j-qcl01', {});
+            console.log('TwitterConversionTracking: Conversion event fired');
         }
     }, []);
     
