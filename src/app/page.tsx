@@ -1,14 +1,5 @@
 'use client'
 
-// TypeScript declarations for external libraries
-declare global {
-  interface Window {
-    tidycalEmbed?: {
-      init?: () => void;
-    };
-  }
-}
-
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
@@ -40,9 +31,8 @@ const TidyCalEmbed = () => {
         script.async = true;
         document.body.appendChild(script);
 
-        // Don't remove the script - let it persist
         return () => {
-            // Keep the script loaded
+            document.body.removeChild(script);
         };
     }, []);
 
