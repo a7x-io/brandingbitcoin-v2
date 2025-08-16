@@ -35,6 +35,9 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#FF6B00" />
         <meta name="msapplication-TileImage" content="/apple-fav.png" />
         
+        {/* Content Security Policy for Twitter Pixel */}
+        <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com; connect-src 'self' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com; img-src 'self' data: https: https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com;" />
+        
         {/* Twitter Pixel Base Code */}
         <script async src="https://static.ads-twitter.com/uwt.js"></script>
         <script dangerouslySetInnerHTML={{
