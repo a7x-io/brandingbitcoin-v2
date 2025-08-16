@@ -1211,13 +1211,13 @@ export default function Home() {
                                         href="https://buy.stripe.com/7sY9AUaOs7Yva31etnaAw0x"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer text-center flex items-center justify-center"
+                                        className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer text-center flex items-center justify-center"
                                         style={{ cursor: 'pointer' }}
                                     >
                                         Start Your Project
                                     </a>
                                     <button 
-                                        className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer"
+                                        className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer"
                                         onClick={() => {
                                             setShowLogoModal(false);
                                             document.getElementById('book-call')?.scrollIntoView({ behavior: 'smooth' });
@@ -1227,7 +1227,7 @@ export default function Home() {
                                     </button>
                                     <button 
                                         onClick={() => setShowLogoModal(false)}
-                                        className="bg-white border border-gray-300 text-gray-700 font-semibold py-2 px-6 rounded-lg hover:bg-gray-50 transition-colors text-xs md:text-sm cursor-pointer"
+                                        className="bg-white border border-gray-300 text-gray-700 font-semibold py-2 px-6 rounded-lg hover:bg-gray-50 transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer"
                                         style={{ cursor: 'pointer' }}
                                     >
                                         Close
@@ -1389,13 +1389,13 @@ export default function Home() {
                                         href="https://buy.stripe.com/9B63cw09ObaHcb91GBaAw0y"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer text-center flex items-center justify-center"
+                                        className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer text-center flex items-center justify-center"
                                         style={{ cursor: 'pointer' }}
                                     >
                                         Start Your Project
                                     </a>
                                     <button 
-                                        className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer"
+                                        className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer"
                                         onClick={() => {
                                             setShowLandingModal(false);
                                             document.getElementById('book-call')?.scrollIntoView({ behavior: 'smooth' });
@@ -1405,7 +1405,7 @@ export default function Home() {
                                     </button>
                                     <button 
                                         onClick={() => setShowLandingModal(false)}
-                                        className="bg-white border border-gray-300 text-gray-700 font-semibold py-2 px-6 rounded-lg hover:bg-gray-50 transition-colors text-xs md:text-sm cursor-pointer"
+                                        className="bg-white border border-gray-300 text-gray-700 font-semibold py-2 px-6 rounded-lg hover:bg-gray-50 transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer"
                                         style={{ cursor: 'pointer' }}
                                     >
                                         Close
@@ -1567,13 +1567,13 @@ export default function Home() {
                                         href="https://buy.stripe.com/fZu14o4q4baH1wvgBvaAw0z"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer text-center flex items-center justify-center"
+                                        className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer text-center flex items-center justify-center"
                                         style={{ cursor: 'pointer' }}
                                     >
                                         Start Your Project
                                     </a>
                                     <button 
-                                        className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-lg hover:shadow-xl text-xs md:text-sm cursor-pointer"
+                                        className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer"
                                         onClick={() => {
                                             setShowSocialModal(false);
                                             document.getElementById('book-call')?.scrollIntoView({ behavior: 'smooth' });
@@ -1583,7 +1583,7 @@ export default function Home() {
                                     </button>
                                     <button 
                                         onClick={() => setShowSocialModal(false)}
-                                        className="bg-white border border-gray-300 text-gray-700 font-semibold py-2 px-6 rounded-lg hover:bg-gray-50 transition-colors text-xs md:text-sm cursor-pointer"
+                                        className="bg-white border border-gray-300 text-gray-700 font-semibold py-2 px-6 rounded-lg hover:bg-gray-50 transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer"
                                         style={{ cursor: 'pointer' }}
                                     >
                                         Close
