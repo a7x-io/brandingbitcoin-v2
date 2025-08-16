@@ -225,7 +225,7 @@ export default function Home() {
                         </div>
                         
                         {/* CTA Button */}
-                        <div className="px-4 pt-4 pb-4 border-t border-border bg-muted flex items-center justify-center">
+                        <div className="px-4 pt-4 pb-4 border-t border-border bg-gray-50 dark:bg-[#121212] flex items-center justify-center">
                             <Button
                                 variant="outline"
                                 className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 font-medium"
