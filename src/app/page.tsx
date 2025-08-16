@@ -9,6 +9,18 @@ import Image from 'next/image'
 import { useState, useEffect, useCallback } from 'react'
 import { Globe, Smartphone, Zap, Palette, FileText, Target, BarChart3, CheckCircle } from 'lucide-react'
 
+// Twitter conversion tracking event code
+const TwitterConversionTracking = () => {
+    useEffect(() => {
+        if (typeof window !== 'undefined' && window.twq) {
+            // Insert Twitter Event ID
+            window.twq('event', 'tw-qcg5j-qcl01', {});
+        }
+    }, []);
+    
+    return null; // This component doesn't render anything
+};
+
 // Debounced Twitter pixel event tracking to prevent duplicate events
 const useTwitterPixelEvent = () => {
   const [lastEventTime, setLastEventTime] = useState(0);
@@ -84,6 +96,9 @@ export default function Home() {
 
     return (
         <div className="min-h-screen bg-background">
+            {/* Twitter conversion tracking - runs on page load */}
+            <TwitterConversionTracking />
+            
             {/* Promotional Banner */}
             {showBanner && (
                 <div className="bg-gradient-to-tr from-primary to-primary/80 text-primary-foreground py-1 px-4 relative">
