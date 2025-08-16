@@ -32,121 +32,21 @@ const useTwitterPixelEvent = () => {
   }, [lastEventTime]);
 };
 
-// TidyCal Embed Component - Fixed for better reliability
+// TidyCal Embed Component
 const TidyCalEmbed = () => {
-    const [isLoading, setIsLoading] = useState(true);
-    const [hasError, setHasError] = useState(false);
-
     useEffect(() => {
-        console.log('TidyCal: Component mounted, checking for existing script...');
-        
-        // Check if TidyCal script is already loaded
-        if (document.querySelector('script[src*="tidycal"]')) {
-            console.log('TidyCal: Script already loaded, checking for embed...');
-            // Check if embed is already working
-            const existingEmbed = document.querySelector('.tidycal-embed iframe');
-            if (existingEmbed) {
-                console.log('TidyCal: Embed already working');
-                setIsLoading(false);
-                return;
-            }
-        }
-
-        console.log('TidyCal: Loading embed script...');
-        
         const script = document.createElement('script');
         script.src = 'https://asset-tidycal.b-cdn.net/js/embed.js';
         script.async = true;
-        script.onload = () => {
-            console.log('TidyCal: Script loaded successfully');
-            console.log('TidyCal: Looking for embed element with data-path="brandingbtc/15-minute-meeting"');
-            
-            // TidyCal automatically initializes when script loads
-            // Wait for the embed to appear
-            const checkEmbed = setInterval(() => {
-                const iframe = document.querySelector('.tidycal-embed iframe');
-                console.log('TidyCal: Checking for iframe...', iframe ? 'Found!' : 'Not yet');
-                if (iframe) {
-                    console.log('TidyCal: Embed loaded successfully');
-                    setIsLoading(false);
-                    clearInterval(checkEmbed);
-                }
-            }, 500);
-
-            // Timeout after 10 seconds
-            setTimeout(() => {
-                clearInterval(checkEmbed);
-                if (isLoading) {
-                    console.warn('TidyCal: Embed failed to load within timeout');
-                    console.warn('TidyCal: Available elements:', document.querySelectorAll('.tidycal-embed'));
-                    setHasError(true);
-                    setIsLoading(false);
-                }
-            }, 10000);
-        };
-        
-        script.onerror = (error) => {
-            console.error('TidyCal: Failed to load script:', error);
-            setHasError(true);
-            setIsLoading(false);
-        };
-        
-        document.head.appendChild(script);
+        document.body.appendChild(script);
 
         return () => {
-            console.log('TidyCal: Component unmounting');
+            document.body.removeChild(script);
         };
-    }, [isLoading]);
-
-    if (hasError) {
-        return (
-            <div 
-                className="tidycal-embed" 
-                data-path="brandingbtc/15-minute-meeting"
-                style={{ 
-                    minHeight: '600px', 
-                    width: '100%',
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '8px',
-                    padding: '20px',
-                    backgroundColor: '#f9fafb'
-                }}
-            >
-                <div className="text-center text-gray-500">
-                    <p className="text-red-500 mb-2">Failed to load calendar</p>
-                    <p className="text-sm mb-4">Please try refreshing the page</p>
-                    <button 
-                        onClick={() => window.location.reload()}
-                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
-                    >
-                        Refresh Page
-                    </button>
-                </div>
-            </div>
-        );
-    }
+    }, []);
 
     return (
-        <div 
-            className="tidycal-embed" 
-            data-path="brandingbtc/15-minute-meeting"
-            style={{ 
-                minHeight: '600px', 
-                width: '100%',
-                border: '1px solid #e5e7eb',
-                borderRadius: '8px',
-                padding: '20px',
-                backgroundColor: '#f9fafb'
-            }}
-        >
-            {isLoading && (
-                <div className="text-center text-gray-500">
-                    <p>Loading calendar...</p>
-                    <p className="text-sm mt-2">If the calendar doesn&apos;t load, please refresh the page</p>
-                    <p className="text-xs mt-1 text-gray-400">Debug: data-path=&quot;brandingbtc/15-minute-meeting&quot;</p>
-                </div>
-            )}
-        </div>
+        <div className="tidycal-embed" data-path="brandingbtc/15-minute-meeting"></div>
     );
 };
 
