@@ -100,7 +100,7 @@ const TidyCalEmbed = () => {
         >
             <div className="text-center text-gray-500">
                 <p>Loading calendar...</p>
-                <p className="text-sm mt-2">If the calendar doesn't load, please refresh the page</p>
+                <p className="text-sm mt-2">If the calendar doesn&apos;t load, please refresh the page</p>
             </div>
         </div>
     );
