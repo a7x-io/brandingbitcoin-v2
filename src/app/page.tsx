@@ -25,19 +25,11 @@ const useTwitterPixelEvent = () => {
 
 // TidyCal Embed Component
 const TidyCalEmbed = () => {
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.src = 'https://asset-tidycal.b-cdn.net/js/embed.js';
-        script.async = true;
-        document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, []);
-
     return (
-        <div className="tidycal-embed" data-path="brandingbtc/15-minute-meeting"></div>
+        <>
+            <div className="tidycal-embed" data-path="brandingbtc/15-minute-meeting"></div>
+            <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
+        </>
     );
 };
 
