@@ -3,6 +3,14 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import Image from "next/image";
 
+// TypeScript declarations for Twitter pixel
+declare global {
+  interface Window {
+    twq?: (command: string, ...args: any[]) => void;
+    twitterPixelInitialized?: boolean;
+  }
+}
+
 export const metadata: Metadata = {
   title: "BrandingBitcoin | Professional Digital Solutions",
   description: "Transform your business with professional branding solutions. We help Bitcoin companies establish strong brand identities and market presence.",
@@ -38,18 +46,47 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#FF6B00" />
         <meta name="msapplication-TileImage" content="/apple-fav.png" />
         
-        {/* Twitter Pixel Base Code */}
+        {/* Twitter Pixel Base Code - Fixed to prevent duplicate loading */}
         <script dangerouslySetInnerHTML={{
           __html: `
-            console.log('Twitter Pixel: Initializing...');
-            !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
-            },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
-            a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
-            console.log('Twitter Pixel: Configuring...');
-            twq('config','qcg5j');
-            console.log('Twitter Pixel: Tracking page view...');
-            twq('track','PageView');
-            console.log('Twitter Pixel: Setup complete');
+            // Prevent duplicate Twitter pixel initialization
+            if (typeof window !== 'undefined' && !window.twq) {
+              console.log('Twitter Pixel: Initializing...');
+              
+              // Create a global flag to prevent multiple initializations
+              window.twitterPixelInitialized = false;
+              
+              !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+              },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+              a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+              
+              // Wait for the script to load before configuring
+              const checkTwitterPixel = setInterval(function() {
+                if (window.twq && !window.twitterPixelInitialized) {
+                  clearInterval(checkTwitterPixel);
+                  window.twitterPixelInitialized = true;
+                  
+                  console.log('Twitter Pixel: Configuring...');
+                  window.twq('config','qcg5j');
+                  console.log('Twitter Pixel: Tracking page view...');
+                  window.twq('track','PageView');
+                  console.log('Twitter Pixel: Setup complete');
+                }
+              }, 100);
+              
+              // Fallback timeout to prevent infinite checking
+              setTimeout(function() {
+                if (checkTwitterPixel) {
+                  clearInterval(checkTwitterPixel);
+                  console.warn('Twitter Pixel: Failed to initialize within timeout');
+                }
+              }, 10000);
+              
+            } else if (window.twq && !window.twitterPixelInitialized) {
+              console.log('Twitter Pixel: Already initialized, tracking page view...');
+              window.twitterPixelInitialized = true;
+              window.twq('track','PageView');
+            }
           `
         }} />
         <noscript>

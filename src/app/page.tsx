@@ -1,20 +1,27 @@
 'use client'
 
-// Twitter tracking type declaration
-declare global {
-  interface Window {
-    twq: (...args: unknown[]) => void;
-  }
-}
-
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
 import { Logo } from '@/components/ui/logo'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Globe, Smartphone, Zap, Palette, FileText, Target, BarChart3, CheckCircle } from 'lucide-react'
+
+// Debounced Twitter pixel event tracking to prevent duplicate events
+const useTwitterPixelEvent = () => {
+  const [lastEventTime, setLastEventTime] = useState(0);
+  
+  return useCallback((eventName: string, eventData?: any) => {
+    const now = Date.now();
+    // Prevent events from firing more than once per 100ms
+    if (now - lastEventTime > 100 && typeof window !== 'undefined' && window.twq) {
+      window.twq('event', eventName, eventData);
+      setLastEventTime(now);
+    }
+  }, [lastEventTime]);
+};
 
 // TidyCal Embed Component
 const TidyCalEmbed = () => {
@@ -43,6 +50,9 @@ export default function Home() {
     const [showLandingModal, setShowLandingModal] = useState(false)
     const [showSocialModal, setShowSocialModal] = useState(false)
     const [showMobileMenu, setShowMobileMenu] = useState(false)
+    
+    // Use the debounced Twitter pixel event tracker
+    const trackTwitterEvent = useTwitterPixelEvent();
 
     // ESC key to close modal and prevent background scrolling
     useEffect(() => {
@@ -579,9 +589,7 @@ export default function Home() {
                                     className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-sm cursor-pointer text-center flex items-center justify-center"
                                     style={{ cursor: 'pointer' }}
                                     onClick={() => {
-                                        if (typeof window !== 'undefined' && window.twq) {
-                                            window.twq('event', 'tw-qcg5j-qcg7r', {});
-                                        }
+                                        trackTwitterEvent('tw-qcg5j-qcg7r', {});
                                     }}
                                 >
                                     Start Your Project
@@ -673,9 +681,7 @@ export default function Home() {
                                     className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-sm cursor-pointer text-center flex items-center justify-center"
                                     style={{ cursor: 'pointer' }}
                                     onClick={() => {
-                                        if (typeof window !== 'undefined' && window.twq) {
-                                            window.twq('event', 'tw-qcg5j-qcg7r', {});
-                                        }
+                                        trackTwitterEvent('tw-qcg5j-qcg7r', {});
                                     }}
                                 >
                                     Start Your Project
@@ -765,9 +771,7 @@ export default function Home() {
                                     className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-sm cursor-pointer text-center flex items-center justify-center"
                                     style={{ cursor: 'pointer' }}
                                     onClick={() => {
-                                        if (typeof window !== 'undefined' && window.twq) {
-                                            window.twq('event', 'tw-qcg5j-qcg7r', {});
-                                        }
+                                        trackTwitterEvent('tw-qcg5j-qcg7r', {});
                                     }}
                                 >
                                     Start Your Project
@@ -881,9 +885,7 @@ export default function Home() {
                             className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer text-sm md:text-base"
                             onClick={() => {
                                 document.getElementById('book-call')?.scrollIntoView({ behavior: 'smooth' });
-                                if (typeof window !== 'undefined' && window.twq) {
-                                    window.twq('event', 'tw-qcg5j-qcg7r', {});
-                                }
+                                trackTwitterEvent('tw-qcg5j-qcg7r', {});
                             }}
                             style={{ cursor: 'pointer' }}
                         >
@@ -1241,9 +1243,7 @@ export default function Home() {
                                         className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer text-center flex items-center justify-center"
                                         style={{ cursor: 'pointer' }}
                                         onClick={() => {
-                                            if (typeof window !== 'undefined' && window.twq) {
-                                                window.twq('event', 'tw-qcg5j-qcg7r', {});
-                                            }
+                                            trackTwitterEvent('tw-qcg5j-qcg7r', {});
                                         }}
                                     >
                                         Start Your Project
@@ -1423,6 +1423,9 @@ export default function Home() {
                                         rel="noopener noreferrer"
                                         className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer text-center flex items-center justify-center"
                                         style={{ cursor: 'pointer' }}
+                                        onClick={() => {
+                                            trackTwitterEvent('tw-qcg5j-qcg7r', {});
+                                        }}
                                     >
                                         Start Your Project
                                     </a>
@@ -1601,6 +1604,9 @@ export default function Home() {
                                         rel="noopener noreferrer"
                                         className="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer text-center flex items-center justify-center"
                                         style={{ cursor: 'pointer' }}
+                                        onClick={() => {
+                                            trackTwitterEvent('tw-qcg5j-qcg7r', {});
+                                        }}
                                     >
                                         Start Your Project
                                     </a>
