@@ -9,27 +9,23 @@ import Image from 'next/image'
 import { useState, useEffect, useCallback } from 'react'
 import { Globe, Smartphone, Zap, Palette, FileText, Target, BarChart3, CheckCircle } from 'lucide-react'
 
-// Twitter conversion tracking event code
+// Twitter conversion tracking base code
 const TwitterConversionTracking = () => {
     useEffect(() => {
-        // Load Twitter pixel base script if not already loaded
+        // Only load if not already loaded
         if (typeof window !== 'undefined' && !window.twq) {
             const script = document.createElement('script');
-            script.src = 'https://static.ads-twitter.com/uwt.js';
-            script.async = true;
-            script.onload = () => {
-                // Initialize Twitter pixel
-                if (window.twq) {
-                    window.twq('config', 'qcg5j');
-                    window.twq('track', 'PageView');
-                    // Now fire the conversion event
-                    window.twq('event', 'tw-qcg5j-qcl01', {});
-                }
-            };
+            script.innerHTML = `
+                !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+                },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+                a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+                twq('config','qcg5j');
+                twq('event','tw-qcg5j-qcl01',{});
+            `;
             document.head.appendChild(script);
         } else if (window.twq) {
-            // Pixel already loaded, just fire the conversion event
-            window.twq('event', 'tw-qcg5j-qcl01', {});
+            // Pixel already loaded, fire the conversion event
+            window.twq('event','tw-qcg5j-qcl01',{});
         }
     }, []);
     
