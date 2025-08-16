@@ -143,7 +143,7 @@ const TidyCalEmbed = () => {
                 <div className="text-center text-gray-500">
                     <p>Loading calendar...</p>
                     <p className="text-sm mt-2">If the calendar doesn&apos;t load, please refresh the page</p>
-                    <p className="text-xs mt-1 text-gray-400">Debug: data-path="brandingbtc/15-minute-meeting"</p>
+                    <p className="text-xs mt-1 text-gray-400">Debug: data-path=&quot;brandingbtc/15-minute-meeting&quot;</p>
                 </div>
             )}
         </div>
