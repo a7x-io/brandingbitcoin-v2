@@ -3,7 +3,7 @@
 // Twitter tracking type declaration
 declare global {
   interface Window {
-    twq: any;
+    twq: (...args: unknown[]) => void;
   }
 }
 
