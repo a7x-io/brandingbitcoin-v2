@@ -29,8 +29,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Content Security Policy for Twitter Pixel */}
-        <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com; connect-src 'self' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com; img-src 'self' data: https: https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com;" />
+        {/* Content Security Policy for Twitter Pixel and TidyCal */}
+        <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com https://asset-tidycal.b-cdn.net https://tidycal.com; connect-src 'self' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com https://asset-tidycal.b-cdn.net https://tidycal.com https://api.tidycal.com; img-src 'self' data: https: https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com https://asset-tidycal.b-cdn.net https://tidycal.com; style-src 'self' 'unsafe-inline' https://asset-tidycal.b-cdn.net https://tidycal.com; font-src 'self' https://asset-tidycal.b-cdn.net https://tidycal.com;" />
         
         <link rel="icon" href="/Favicon-02.png" type="image/png" />
         <link rel="shortcut icon" href="/Favicon-02.png" />
