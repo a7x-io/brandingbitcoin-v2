@@ -12,8 +12,23 @@ import { Globe, Smartphone, Zap, Palette, FileText, Target, BarChart3, CheckCirc
 // Twitter conversion tracking event code
 const TwitterConversionTracking = () => {
     useEffect(() => {
-        if (typeof window !== 'undefined' && window.twq) {
-            // Insert Twitter Event ID
+        // Load Twitter pixel base script if not already loaded
+        if (typeof window !== 'undefined' && !window.twq) {
+            const script = document.createElement('script');
+            script.src = 'https://static.ads-twitter.com/uwt.js';
+            script.async = true;
+            script.onload = () => {
+                // Initialize Twitter pixel
+                if (window.twq) {
+                    window.twq('config', 'qcg5j');
+                    window.twq('track', 'PageView');
+                    // Now fire the conversion event
+                    window.twq('event', 'tw-qcg5j-qcl01', {});
+                }
+            };
+            document.head.appendChild(script);
+        } else if (window.twq) {
+            // Pixel already loaded, just fire the conversion event
             window.twq('event', 'tw-qcg5j-qcl01', {});
         }
     }, []);
