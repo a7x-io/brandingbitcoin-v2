@@ -1008,7 +1008,7 @@ export default function Home() {
             {/* <Separator className="my-16" /> */}
 
             {/* Footer */}
-            <footer className="border-t border-border bg-gradient-to-b from-gray-50 to-gray-200 dark:from-gray-800 dark:to-gray-900 relative">
+            <footer className="border-t border-border bg-gradient-to-b from-gray-50 to-gray-200 dark:from-black dark:to-background relative">
                 {/* Background Noise Image */}
                 <div className="absolute inset-0 opacity-10 dark:opacity-5">
                     <Image
