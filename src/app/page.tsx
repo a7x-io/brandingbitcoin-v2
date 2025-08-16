@@ -192,7 +192,7 @@ export default function Home() {
                     />
                     
                     {/* Drawer Panel */}
-                    <div className="fixed top-18 left-0 right-0 bg-white shadow-lg border-b z-30">
+                    <div className="fixed top-18 left-0 right-0 bg-background shadow-lg border-b border-border z-30">
                         {/* Navigation Links */}
                         <div className="pt-6 px-4 pb-4 space-y-2">
                             <a
@@ -202,7 +202,7 @@ export default function Home() {
                                     setShowMobileMenu(false);
                                     window.scrollTo({ top: 0, behavior: 'smooth' });
                                 }}
-                                className="block py-3 px-4 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+                                className="block py-3 px-4 text-base font-medium text-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors"
                             >
                                 Home
                             </a>
@@ -218,14 +218,14 @@ export default function Home() {
                                         window.scrollTo({ top: elementPosition, behavior: 'smooth' });
                                     }
                                 }}
-                                className="block py-3 px-4 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+                                className="block py-3 px-4 text-base font-medium text-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors"
                             >
                                 Services
                             </a>
                         </div>
                         
                         {/* CTA Button */}
-                        <div className="px-4 pt-4 pb-4 border-t bg-gray-50 flex items-center justify-center">
+                        <div className="px-4 pt-4 pb-4 border-t border-border bg-muted flex items-center justify-center">
                             <Button
                                 variant="outline"
                                 className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 font-medium"
@@ -426,7 +426,7 @@ export default function Home() {
             </section>
 
             {/* Logo Marquee Section */}
-            <section className="pt-8 pb-16 bg-gray-50/50 dark:bg-gray-800/50">
+            <section className="pt-8 pb-16 bg-gray-50/50 dark:bg-transparent">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-6">
                         <h3 className="text-lg font-medium text-gray-600 dark:text-gray-300 mb-2">
@@ -1008,9 +1008,9 @@ export default function Home() {
             {/* <Separator className="my-16" /> */}
 
             {/* Footer */}
-                            <footer className="border-t bg-gradient-to-b from-gray-50 to-gray-200 relative">
+            <footer className="border-t border-border bg-gradient-to-b from-gray-50 to-gray-200 dark:from-gray-800 dark:to-gray-900 relative">
                 {/* Background Noise Image */}
-                <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 opacity-10 dark:opacity-5">
                     <Image
                         src="/noise.png"
                         alt=""

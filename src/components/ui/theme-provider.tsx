@@ -49,10 +49,12 @@ export function ThemeProvider({
         : "light"
 
       root.classList.add(systemTheme)
+      console.log('ThemeProvider - System theme detected:', systemTheme)
       return
     }
 
     root.classList.add(theme)
+    console.log('ThemeProvider - Theme set to:', theme)
   }, [theme])
 
   const value = {
@@ -61,6 +63,7 @@ export function ThemeProvider({
       if (typeof window !== 'undefined' && localStorage) {
         localStorage.setItem(storageKey, theme)
       }
+      console.log('ThemeProvider - Theme changed to:', theme)
       setTheme(theme)
     },
   }
