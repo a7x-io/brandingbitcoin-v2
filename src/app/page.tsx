@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
 import { Logo } from '@/components/ui/logo'
+import { BitcoinPrice } from '@/components/ui/bitcoin-price'
 import Image from 'next/image'
 import { useState, useEffect, useCallback } from 'react'
 import { Globe, Smartphone, Zap, Palette, FileText, Target, BarChart3, CheckCircle } from 'lucide-react'
@@ -13,7 +14,7 @@ import { Globe, Smartphone, Zap, Palette, FileText, Target, BarChart3, CheckCirc
 const TwitterConversionTracking = () => {
     useEffect(() => {
         // Only load if not already loaded
-        if (typeof window !== 'undefined' && !window.twq) {
+        if (!window.twq) {
             const script = document.createElement('script');
             script.innerHTML = `
                 !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
@@ -23,7 +24,7 @@ const TwitterConversionTracking = () => {
                 twq('event','tw-qcg5j-qcl01',{});
             `;
             document.head.appendChild(script);
-        } else if (window.twq) {
+        } else {
             // Pixel already loaded, fire the conversion event
             window.twq('event','tw-qcg5j-qcl01',{});
         }
@@ -46,8 +47,19 @@ const useTwitterPixelEvent = () => {
   }, [lastEventTime]);
 };
 
-// TidyCal Embed Component
+// TidyCal Embed Component - Client-side only to prevent hydration issues
 const TidyCalEmbed = () => {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    // Only render on client side to prevent hydration mismatch
+    if (!isClient) {
+        return <div className="tidycal-embed-placeholder h-96 bg-gray-100 rounded-lg flex items-center justify-center">Loading calendar...</div>;
+    }
+
     return (
         <>
             <div className="tidycal-embed" data-path="brandingbtc/15-minute-meeting"></div>
@@ -106,7 +118,7 @@ export default function Home() {
     }
 
     return (
-        <div className="min-h-screen bg-background">
+        <div className="min-h-screen bg-background" suppressHydrationWarning>
             {/* Twitter conversion tracking - runs on page load */}
             <TwitterConversionTracking />
             
@@ -198,6 +210,7 @@ export default function Home() {
                             Free Strategy Call
                         </Button>
                         <ThemeToggle />
+                        <BitcoinPrice />
                     </div>
                     
                     {/* Mobile Menu Button */}

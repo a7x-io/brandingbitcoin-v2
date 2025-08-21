@@ -13,33 +13,34 @@ interface LogoProps {
 
 export function Logo({ width = 180, height = 33, className = "h-8 w-auto", priority = false }: LogoProps) {
   const { theme } = useTheme()
-  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('light')
+  const [mounted, setMounted] = useState(false)
+  const [actualTheme, setActualTheme] = useState<'light' | 'dark'>('light')
   
   useEffect(() => {
-    // Check the actual CSS class on the document element
-    const checkTheme = () => {
+    setMounted(true)
+    
+    // Check the actual CSS class on the document element to determine the real theme
+    const checkActualTheme = () => {
       const isDark = document.documentElement.classList.contains('dark')
-      setCurrentTheme(isDark ? 'dark' : 'light')
+      setActualTheme(isDark ? 'dark' : 'light')
     }
     
-    checkTheme()
+    checkActualTheme()
     
     // Listen for theme changes
-    const observer = new MutationObserver(checkTheme)
+    const observer = new MutationObserver(checkActualTheme)
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
     
     return () => observer.disconnect()
-  }, [theme])
+  }, [])
   
-  // Determine which logo to use based on actual theme
-  const logoSrc = currentTheme === 'dark' ? '/LogoB-White.svg' : '/LogoB.svg'
-  
-  // Debug logging
-  console.log('Logo component - Theme prop:', theme, 'Actual theme:', currentTheme, 'Logo src:', logoSrc)
+  // Use the actual theme from CSS classes when mounted, fallback to context theme during SSR
+  const effectiveTheme = mounted ? actualTheme : (theme === 'dark' ? 'dark' : 'light')
+  const logoSrc = effectiveTheme === 'dark' ? '/LogoB-White.svg' : '/LogoB.svg'
   
   return (
     <Image
-      key={currentTheme} // Force re-render when theme changes
+      key={effectiveTheme} // Force re-render when theme changes
       src={logoSrc}
       alt="BrandingBitcoin Logo"
       width={width}

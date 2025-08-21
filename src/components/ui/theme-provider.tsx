@@ -28,16 +28,24 @@ export function ThemeProvider({
   storageKey = "ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => {
-      if (typeof window !== 'undefined' && localStorage) {
-        return (localStorage.getItem(storageKey) as Theme) || defaultTheme
-      }
-      return defaultTheme
-    }
-  )
+  const [mounted, setMounted] = useState(false)
+  const [theme, setTheme] = useState<Theme>(defaultTheme)
 
   useEffect(() => {
+    setMounted(true)
+    
+    // Only check localStorage after mounting to prevent hydration mismatch
+    if (localStorage) {
+      const storedTheme = localStorage.getItem(storageKey) as Theme
+      if (storedTheme) {
+        setTheme(storedTheme)
+      }
+    }
+  }, [storageKey])
+
+  useEffect(() => {
+    if (!mounted) return
+    
     const root = window.document.documentElement
 
     root.classList.remove("light", "dark")
@@ -55,12 +63,12 @@ export function ThemeProvider({
 
     root.classList.add(theme)
     console.log('ThemeProvider - Theme set to:', theme)
-  }, [theme])
+  }, [theme, mounted])
 
   const value = {
     theme,
     setTheme: (theme: Theme) => {
-      if (typeof window !== 'undefined' && localStorage) {
+      if (mounted && localStorage) {
         localStorage.setItem(storageKey, theme)
       }
       console.log('ThemeProvider - Theme changed to:', theme)
