@@ -8,7 +8,7 @@ import { Logo } from '@/components/ui/logo'
 import { BitcoinPrice } from '@/components/ui/bitcoin-price'
 import Image from 'next/image'
 import { useState, useEffect, useCallback } from 'react'
-import { Globe, Smartphone, Zap, Palette, FileText, Target, BarChart3, CheckCircle } from 'lucide-react'
+import { Globe, Smartphone, Zap, Palette, FileText, Target, BarChart3, CheckCircle, Video, Mail, Settings } from 'lucide-react'
 
 // Twitter conversion tracking base code
 const TwitterConversionTracking = () => {
@@ -861,50 +861,38 @@ export default function Home() {
                     </button>
                     <div id="additional-services-content" className="grid grid-cols-2 md:grid-cols-3 gap-4 opacity-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                         <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                            <div className="w-3.5 h-3.5 md:w-5 md:h-5 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                </svg>
+                            <div className="w-4 h-4 md:w-6 md:h-6 bg-orange-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                <Smartphone className="w-3 h-3 md:w-4 md:h-4 text-white" />
                             </div>
                             <span className="text-gray-700 font-medium text-xs md:text-sm">App Design</span>
                         </div>
                         <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                            <div className="w-3.5 h-3.5 md:w-5 md:h-5 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                </svg>
+                            <div className="w-4 h-4 md:w-6 md:h-6 bg-orange-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                <Video className="w-3 h-3 md:w-4 md:h-4 text-white" />
                             </div>
                             <span className="text-gray-700 font-medium text-xs md:text-sm">Video Editing</span>
                         </div>
                         <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                            <div className="w-3.5 h-3.5 md:w-5 md:h-5 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                </svg>
+                            <div className="w-4 h-4 md:w-6 md:h-6 bg-orange-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                <Zap className="w-3 h-3 md:w-4 md:h-4 text-white" />
                             </div>
                             <span className="text-gray-700 font-medium text-xs md:text-sm">Motion Graphics</span>
                         </div>
                         <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                            <div className="w-3.5 h-3.5 md:w-5 md:h-5 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                </svg>
+                            <div className="w-4 h-4 md:w-6 md:h-6 bg-orange-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                <Target className="w-3 h-3 md:w-4 md:h-4 text-white" />
                             </div>
                             <span className="text-gray-700 font-medium text-xs md:text-sm">Ad Campaigns</span>
                         </div>
                         <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                            <div className="w-3.5 h-3.5 md:w-5 md:h-5 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                </svg>
+                            <div className="w-4 h-4 md:w-6 md:h-6 bg-orange-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                <Mail className="w-3 h-3 md:w-4 md:h-4 text-white" />
                             </div>
                             <span className="text-gray-700 font-medium text-xs md:text-sm">Email Templates</span>
                         </div>
                         <div className="flex items-center gap-3 py-2 pl-3 pr-1 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                            <div className="w-3.5 h-3.5 md:w-5 md:h-5 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                </svg>
+                            <div className="w-4 h-4 md:w-6 md:h-6 bg-orange-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                <Settings className="w-3 h-3 md:w-4 md:h-4 text-white" />
                             </div>
                             <span className="text-gray-700 font-medium text-xs md:text-sm">Custom Projects</span>
                         </div>
@@ -913,7 +901,7 @@ export default function Home() {
                     {/* Book a Call Button */}
                     <div className="mt-2">
                         <button 
-                            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer text-sm md:text-base"
+                            className="bg-orange-400 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer text-sm md:text-base"
                             onClick={() => {
                                 document.getElementById('book-call')?.scrollIntoView({ behavior: 'smooth' });
                                 trackTwitterEvent('tw-qcg5j-qcg7r', {});
@@ -1232,7 +1220,7 @@ export default function Home() {
                                 <div className="space-y-4">
                                     <div>
                                         <h3 className="text-sm md:text-lg font-semibold text-gray-800 mb-2 md:mb-3 flex items-center gap-2">
-                                            <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                            <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
                                             Your Delivery Includes
                                         </h3>
                                         <div className="space-y-2">
@@ -1280,7 +1268,7 @@ export default function Home() {
                                         Start Your Project
                                     </a>
                                     <button 
-                                        className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer"
+                                        className="hidden md:block bg-orange-400 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer"
                                         onClick={() => {
                                             setShowLogoModal(false);
                                             document.getElementById('book-call')?.scrollIntoView({ behavior: 'smooth' });
@@ -1413,7 +1401,7 @@ export default function Home() {
                                 <div className="space-y-4">
                                     <div>
                                         <h3 className="text-sm md:text-lg font-semibold text-gray-800 mb-2 md:mb-3 flex items-center gap-2">
-                                            <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                            <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
                                             Your Delivery Includes
                                         </h3>
                                         <div className="space-y-2">
@@ -1461,7 +1449,7 @@ export default function Home() {
                                         Start Your Project
                                     </a>
                                     <button 
-                                        className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer"
+                                        className="hidden md:block bg-orange-400 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer"
                                         onClick={() => {
                                             setShowLandingModal(false);
                                             document.getElementById('book-call')?.scrollIntoView({ behavior: 'smooth' });
@@ -1594,7 +1582,7 @@ export default function Home() {
                                 <div className="space-y-4">
                                     <div>
                                         <h3 className="text-sm md:text-lg font-semibold text-gray-800 mb-2 md:mb-3 flex items-center gap-2">
-                                            <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                            <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
                                             Your Delivery Includes
                                         </h3>
                                         <div className="space-y-2">
@@ -1642,7 +1630,7 @@ export default function Home() {
                                         Start Your Project
                                     </a>
                                     <button 
-                                        className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer"
+                                        className="hidden md:block bg-orange-400 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg text-xs md:text-sm cursor-pointer"
                                         onClick={() => {
                                             setShowSocialModal(false);
                                             document.getElementById('book-call')?.scrollIntoView({ behavior: 'smooth' });

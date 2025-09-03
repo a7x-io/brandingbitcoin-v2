@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 
-// TypeScript declarations for Twitter pixel
+// TypeScript declarations for Twitter pixel and Google Analytics
 declare global {
   interface Window {
     twq?: (command: string, ...args: unknown[]) => void;
     twitterPixelInitialized?: boolean;
     twitterPixelScriptExecuted?: boolean;
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
@@ -29,8 +31,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Content Security Policy for Twitter Pixel and TidyCal */}
-        <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com https://asset-tidycal.b-cdn.net https://tidycal.com; connect-src 'self' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com https://asset-tidycal.b-cdn.net https://tidycal.com https://api.tidycal.com; img-src 'self' data: https: https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com https://asset-tidycal.b-cdn.net https://tidycal.com; style-src 'self' 'unsafe-inline' https://asset-tidycal.b-cdn.net https://tidycal.com; font-src 'self' https://asset-tidycal.b-cdn.net https://tidycal.com;" />
+        {/* Content Security Policy for Twitter Pixel, TidyCal, and Google Analytics */}
+        <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com https://asset-tidycal.b-cdn.net https://tidycal.com https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com https://asset-tidycal.b-cdn.net https://tidycal.com https://api.tidycal.com https://www.google-analytics.com https://analytics.google.com; img-src 'self' data: https: https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://t.co https://*.twitter.com https://asset-tidycal.b-cdn.net https://tidycal.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://asset-tidycal.b-cdn.net https://tidycal.com; font-src 'self' https://asset-tidycal.b-cdn.net https://tidycal.com;" />
+        
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-01FK72LBEM"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-01FK72LBEM');
+            `,
+          }}
+        />
         
         <link rel="icon" href="/Favicon-02.png" type="image/png" />
         <link rel="shortcut icon" href="/Favicon-02.png" />
